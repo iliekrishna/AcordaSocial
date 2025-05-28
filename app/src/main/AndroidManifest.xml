@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AcordaSocial"
         tools:targetApi="31">
         <activity
+            android:name=".perfilUsuario"
+            android:exported="false" />
+        <activity
             android:name=".feedPrincipal"
             android:exported="false" />
         <activity

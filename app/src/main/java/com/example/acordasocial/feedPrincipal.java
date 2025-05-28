@@ -1,6 +1,9 @@
 package com.example.acordasocial;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +21,7 @@ public class feedPrincipal extends AppCompatActivity {
     private RecyclerView recyclerView;
     private VagaAdapter vagaAdapter;
     private List<Vaga> listaVagas;
-
+    private ImageButton btnperfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,5 +44,15 @@ public class feedPrincipal extends AppCompatActivity {
 
         vagaAdapter = new VagaAdapter(listaVagas);
         recyclerView.setAdapter(vagaAdapter);
+
+        btnperfil = findViewById(R.id.btnPerfil);
+        btnperfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(feedPrincipal.this, perfilUsuario.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
