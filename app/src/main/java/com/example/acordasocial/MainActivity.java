@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void Login(View view){
 
-        Intent intent = new Intent(MainActivity.this, telaCadastro.class);
+        Intent intent = new Intent(MainActivity.this, feedPrincipal.class);
         startActivity(intent);
 
     }
