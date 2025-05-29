@@ -26,6 +26,7 @@ public class feedPrincipal extends AppCompatActivity {
     private ImageButton btnperfil;
 
 
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,8 @@ public class feedPrincipal extends AppCompatActivity {
             return insets;
 
         });
+
+
         recyclerView = findViewById(R.id.recyclerViewFeed);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

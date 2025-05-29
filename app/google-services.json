@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1038277214714",
+    "firebase_url": "https://acordasocial-default-rtdb.firebaseio.com",
+    "project_id": "acordasocial",
+    "storage_bucket": "acordasocial.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038277214714:android:d4bf2f1c7bf7a736aca443",
+        "android_client_info": {
+          "package_name": "com.example.acordasocial"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcmkN8s5sEXrMV6gkPAinUnCrP5mVtISI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

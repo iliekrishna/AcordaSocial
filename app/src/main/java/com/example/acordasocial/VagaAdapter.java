@@ -1,4 +1,5 @@
 package com.example.acordasocial;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,8 @@ public class VagaAdapter extends RecyclerView.Adapter<VagaAdapter.VagaViewHolder
             descricao = itemView.findViewById(R.id.tvDescricao);
             local = itemView.findViewById(R.id.tvLocal);
             btnParticipar = itemView.findViewById(R.id.btnParticipar);
+
+
         }
     }
 
@@ -51,8 +54,10 @@ public class VagaAdapter extends RecyclerView.Adapter<VagaAdapter.VagaViewHolder
         holder.btnParticipar.setOnClickListener(v -> {
             // Aqui você pode colocar uma ação, tipo Toast ou navegar pra outra tela.
             // Exemplo: Toast.makeText(v.getContext(), "Participou!", Toast.LENGTH_SHORT).show();
+
         });
     }
+
 
     @Override
     public int getItemCount() {
