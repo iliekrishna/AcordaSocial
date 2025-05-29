@@ -9,6 +9,21 @@
     android:background="#121212"
     tools:context=".MainActivity">
 
+
+    <TextView
+        android:id="@+id/txtAcordaSocial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="152dp"
+        android:text="AcordaSocial"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tvLoginTitle"
         android:layout_width="wrap_content"
@@ -35,8 +50,8 @@
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:padding="12dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#B0B0B0"
+        android:textColor="#000000"
+        android:textColorHint="#4B4A4A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvLoginTitle" />
@@ -45,19 +60,19 @@
         android:id="@+id/etPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@android:drawable/edit_text"
+        android:drawableLeft="@android:drawable/ic_lock_lock"
         android:hint="Senha"
         android:inputType="textPassword"
-        android:drawableLeft="@android:drawable/ic_lock_lock"
         android:padding="12dp"
-        android:background="@android:drawable/edit_text"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#B0B0B0"
-        app:layout_constraintTop_toBottomOf="@id/etEmail"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#000000"
+        android:textColorHint="#4B4A4A"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etEmail" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -85,5 +100,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

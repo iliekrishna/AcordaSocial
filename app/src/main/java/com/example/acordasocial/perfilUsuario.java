@@ -4,6 +4,7 @@ package com.example.acordasocial;
 import static com.example.acordasocial.FirebaseConnection.getDatabaseReference;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class perfilUsuario extends AppCompatActivity {
     private TextView tvNomeUsuario, tvEmailUsuario;
     FirebaseAuth auth;
     private DatabaseReference databaseReference;
+    private Button btnSair;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class perfilUsuario extends AppCompatActivity {
 
         tvNomeUsuario = findViewById(R.id.tvNomeUsuario);
         tvEmailUsuario = findViewById(R.id.tvEmailUsuario);
+        btnSair = findViewById(R.id.btnSair);
 
        carregarDadosUsuario();
 
