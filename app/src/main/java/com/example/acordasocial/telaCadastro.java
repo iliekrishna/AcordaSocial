@@ -63,21 +63,30 @@ public class telaCadastro extends AppCompatActivity {
         auth.createUserWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        auth.getCurrentUser().sendEmailVerification()
+                        String userId = auth.getCurrentUser().getUid();
+                        Usuario usuario = new Usuario(userId, nome, email, senha);
+
+                        databaseReference.child(userId).setValue(usuario)
                                 .addOnCompleteListener(task1 -> {
                                     if (task1.isSuccessful()) {
-                                        Toast.makeText(telaCadastro.this, "Cadastro realizado! Verifique seu email.", Toast.LENGTH_LONG).show();
-                                        auth.signOut(); // Desloga o usuário até verificar o email
-                                        finish(); // Fecha a tela de cadastro
+                                        // Enviar e-mail de verificação
+                                        auth.getCurrentUser().sendEmailVerification()
+                                                .addOnCompleteListener(task2 -> {
+                                                    if (task2.isSuccessful()) {
+                                                        Toast.makeText(telaCadastro.this, "Cadastro realizado com sucesso! Verifique seu e-mail.", Toast.LENGTH_SHORT).show();
+                                                    } else {
+                                                        Toast.makeText(telaCadastro.this, "Erro ao enviar e-mail de verificação: " + task2.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                                    }
+                                                });
+                                        limparCampos();
                                     } else {
-                                        Toast.makeText(telaCadastro.this, "Erro ao enviar email de verificação.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(telaCadastro.this, "Erro ao salvar dados: " + task1.getException().getMessage(), Toast.LENGTH_LONG).show();
                                     }
                                 });
                     } else {
                         Toast.makeText(telaCadastro.this, "Erro no cadastro: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
-
     }
 
     private void limparCampos() {

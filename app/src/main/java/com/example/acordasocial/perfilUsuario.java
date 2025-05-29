@@ -1,5 +1,8 @@
 package com.example.acordasocial;
 
+
+import static com.example.acordasocial.FirebaseConnection.getDatabaseReference;
+
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,11 +15,14 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class perfilUsuario extends AppCompatActivity {
     private TextView tvNomeUsuario, tvEmailUsuario;
     FirebaseAuth auth;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,37 +35,42 @@ public class perfilUsuario extends AppCompatActivity {
             return insets;
         });
         auth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference("usuarios");
 
         tvNomeUsuario = findViewById(R.id.tvNomeUsuario);
         tvEmailUsuario = findViewById(R.id.tvEmailUsuario);
 
-        exibirDadosUsuario();
+       carregarDadosUsuario();
 
     }
 
-    private void exibirDadosUsuario() {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-
+    private void carregarDadosUsuario() {
         FirebaseUser user = auth.getCurrentUser();
 
         if (user != null) {
-            String userId = user.getUid();
+            String uid = user.getUid();
 
-            db.collection("usuarios").document(userId)
-                    .get()
-                    .addOnSuccessListener(documentSnapshot -> {
-                        if (documentSnapshot.exists()) {
-                            String nome = documentSnapshot.getString("nome");
-                            String email = documentSnapshot.getString("email");
+            databaseReference.child(uid).get().addOnSuccessListener(snapshot -> {
+                if (snapshot.exists()) {
+                    String nome = snapshot.child("nome").getValue(String.class);
+                    String email = snapshot.child("email").getValue(String.class);
 
-                            tvNomeUsuario.setText(nome);
-                            tvEmailUsuario.setText(email);
-                        }
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(this, "Erro ao carregar dados", Toast.LENGTH_SHORT).show();
-                    });
+
+
+                    tvNomeUsuario.setText(nome != null ? nome : "Nome não encontrado");
+                    tvEmailUsuario.setText(email != null ? email : "Email não encontrado");
+
+
+
+                } else {
+                    Toast.makeText(perfilUsuario.this, "Usuário não encontrado no banco de dados", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(e -> {
+                Toast.makeText(perfilUsuario.this, "Erro ao buscar dados: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            });
+        } else {
+            Toast.makeText(perfilUsuario.this, "Usuário não autenticado", Toast.LENGTH_SHORT).show();
         }
     }
+
 }
