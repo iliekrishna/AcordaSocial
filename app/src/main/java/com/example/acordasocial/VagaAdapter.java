@@ -1,4 +1,5 @@
 package com.example.acordasocial;
+
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,9 +21,7 @@ public class VagaAdapter extends RecyclerView.Adapter<VagaAdapter.VagaViewHolder
     }
 
     public static class VagaViewHolder extends RecyclerView.ViewHolder {
-        TextView nomeOng;
-        TextView descricao;
-        TextView local;
+        TextView nomeOng, descricao, local, horario;
         Button btnParticipar;
 
         public VagaViewHolder(@NonNull View itemView) {
@@ -30,16 +29,16 @@ public class VagaAdapter extends RecyclerView.Adapter<VagaAdapter.VagaViewHolder
             nomeOng = itemView.findViewById(R.id.tvNomeOng);
             descricao = itemView.findViewById(R.id.tvDescricao);
             local = itemView.findViewById(R.id.tvLocal);
+            horario = itemView.findViewById(R.id.etHorario );
             btnParticipar = itemView.findViewById(R.id.btnParticipar);
-
-
         }
     }
 
     @NonNull
     @Override
     public VagaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_feed, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_feed, parent, false);
         return new VagaViewHolder(itemView);
     }
 
@@ -50,14 +49,17 @@ public class VagaAdapter extends RecyclerView.Adapter<VagaAdapter.VagaViewHolder
         holder.descricao.setText(vaga.getDescricao());
         holder.local.setText(vaga.getLocal());
 
-        // Opcional: clique no botão "Participar"
-        holder.btnParticipar.setOnClickListener(v -> {
-            // Aqui você pode colocar uma ação, tipo Toast ou navegar pra outra tela.
-            // Exemplo: Toast.makeText(v.getContext(), "Participou!", Toast.LENGTH_SHORT).show();
 
+        holder.btnParticipar.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), service_description.class);
+            intent.putExtra("id", vaga.getId());
+            intent.putExtra("nomeOng", vaga.getNomeOng());
+            intent.putExtra("descricao", vaga.getDescricao());
+            intent.putExtra("local", vaga.getLocal());
+            intent.putExtra("horario", vaga.getHorario());
+            v.getContext().startActivity(intent);
         });
     }
-
 
     @Override
     public int getItemCount() {

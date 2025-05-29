@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:padding="24dp" android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<EditText
+    android:id="@+id/etNomeOng"
+    android:hint="Nome da ONG"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+<EditText
+    android:id="@+id/etDescricao"
+    android:hint="Descrição"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+<EditText
+    android:id="@+id/etLocal"
+    android:hint="Local"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+<EditText
+    android:id="@+id/etHorario"
+    android:hint="Horário (Ex: 14:00)"
+    android:inputType="time"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+<Button
+    android:id="@+id/btnSalvar"
+    android:text="Salvar Vaga"
+    android:backgroundTint="#2196F3"
+    android:textColor="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"/>
+
+</LinearLayout>

@@ -45,4 +45,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:clipToPadding="false"
         android:padding="16dp"/>
+
+    <Button
+        android:id="@+id/btnCriarVaga"
+        android:layout_width="79dp"
+        android:layout_height="42dp"
+        android:layout_gravity="end"
+        android:layout_margin="16dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Criar Vaga"
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="24dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
