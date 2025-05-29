@@ -1,8 +1,10 @@
 package com.example.acordasocial;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
@@ -23,6 +25,8 @@ public class feedPrincipal extends AppCompatActivity {
     private List<Vaga> listaVagas;
     private ImageButton btnperfil;
 
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,10 +53,12 @@ public class feedPrincipal extends AppCompatActivity {
         btnperfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(feedPrincipal.this, perfilUsuario.class);
                 startActivity(intent);
             }
         });
+
 
     }
 }
