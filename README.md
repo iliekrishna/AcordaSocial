@@ -89,6 +89,6 @@ Este projeto é licenciado sob a MIT License - veja o arquivo LICENSE para mais 
 Contato
 Autor: Ilie Krishna, João Guilherme, Lucas Noguti, Ruryá Henri.
 
-E-mail: iliekrishna86@gmail.com
+E-mail: <strong>iliekrishna86@gmail.com</strong>
 
 GitHub: github.com/iliekrishna
