@@ -3,7 +3,9 @@ package com.example.acordasocial;
 
 import static com.example.acordasocial.FirebaseConnection.getDatabaseReference;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -74,6 +76,13 @@ public class perfilUsuario extends AppCompatActivity {
         } else {
             Toast.makeText(perfilUsuario.this, "Usuário não autenticado", Toast.LENGTH_SHORT).show();
         }
+    }
+    public void Sair(View view){
+        auth.signOut();  // Desloga o usuário
+        Intent intent = new Intent(perfilUsuario.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK); // Limpa a pilha de atividades
+        startActivity(intent);
+        finish();  // Finaliza a activity atual
     }
 
 }
