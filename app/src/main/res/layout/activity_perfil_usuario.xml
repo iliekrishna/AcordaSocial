@@ -66,14 +66,15 @@
         android:id="@+id/btnMeusVoluntariados"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#BB86FC"
+        android:onClick="MeusEventos"
         android:text="Meus Voluntariados"
         android:textColor="#000000"
-        android:backgroundTint="#BB86FC"
-        app:layout_constraintTop_toBottomOf="@id/btnEditarPerfil"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnEditarPerfil" />
 
     <Button
         android:id="@+id/btnSair"

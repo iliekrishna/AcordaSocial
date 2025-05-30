@@ -26,7 +26,7 @@ public class perfilUsuario extends AppCompatActivity {
     private TextView tvNomeUsuario, tvEmailUsuario;
     FirebaseAuth auth;
     private DatabaseReference databaseReference;
-    private Button btnSair;
+    private Button btnSair, btnMeusVoluntariados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class perfilUsuario extends AppCompatActivity {
         tvNomeUsuario = findViewById(R.id.tvNomeUsuario);
         tvEmailUsuario = findViewById(R.id.tvEmailUsuario);
         btnSair = findViewById(R.id.btnSair);
+        btnMeusVoluntariados = findViewById(R.id.btnMeusVoluntariados);
 
        carregarDadosUsuario();
 
@@ -84,5 +85,12 @@ public class perfilUsuario extends AppCompatActivity {
         startActivity(intent);
         finish();  // Finaliza a activity atual
     }
+
+    public void MeusEventos(View view){
+        Intent intent = new Intent(perfilUsuario.this, historico_servicos.class);
+        startActivity(intent);
+
+    }
+
 
 }
