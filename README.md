@@ -16,7 +16,7 @@ Notificações: Notificações em tempo real para atualizações sobre novas opo
 Feedback: Voluntários e ONGs podem avaliar suas experiências após cada serviço.
 
 ## Tecnologias Utilizadas
-Linguagem: Java
+Linguagem: Java ☕
 
 Android Studio: IDE para desenvolvimento de aplicativos Android.
 
