@@ -34,7 +34,7 @@
             android:name=".Usuario.telaCadastro"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Usuario.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

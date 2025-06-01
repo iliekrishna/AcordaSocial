@@ -1,4 +1,4 @@
-package com.example.acordasocial;
+package com.example.acordasocial.Usuario;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.acordasocial.Usuario.telaCadastro;
+import com.example.acordasocial.R;
+import com.example.acordasocial.feedPrincipal;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
