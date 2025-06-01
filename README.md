@@ -16,9 +16,9 @@ Notificações: Notificações em tempo real para atualizações sobre novas opo
 Feedback: Voluntários e ONGs podem avaliar suas experiências após cada serviço.
 
 ## Tecnologias Utilizadas
-Linguagem: Java
+Linguagem: Java ☕
 
-Android Studio: IDE para desenvolvimento de aplicativos Android.
+Android Studio: IDE para desenvolvimento de aplicativos Android. 
 
 Banco de Dados: Firebase (para armazenamento de dados, autenticação e notificações em tempo real).
 
@@ -86,9 +86,16 @@ Abra um Pull Request explicando suas alterações.
 Licença
 Este projeto é licenciado sob a MIT License - veja o arquivo LICENSE para mais detalhes.
 
-Contato
-Autor: Ilie Krishna, João Guilherme, Lucas Noguti, Ruryá Henri.
+## Autores
+Ilie Krishna;
 
-E-mail: iliekrishna86@gmail.com
+João Guilherme;
 
-GitHub: github.com/iliekrishna
+Lucas Noguti;
+
+Ruryá Henri.
+
+## Contato
+E-mail: <strong>iliekrishna86@gmail.com</strong>
+
+LinkedIn: <strong> https://www.linkedin.com/in/ilie-krishna-4a9009231/ </strong>
