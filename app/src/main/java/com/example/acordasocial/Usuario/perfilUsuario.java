@@ -1,7 +1,5 @@
-package com.example.acordasocial;
+package com.example.acordasocial.Usuario;
 
-
-import static com.example.acordasocial.FirebaseConnection.getDatabaseReference;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,11 +14,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.acordasocial.MainActivity;
+import com.example.acordasocial.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class perfilUsuario extends AppCompatActivity {
     private TextView tvNomeUsuario, tvEmailUsuario;

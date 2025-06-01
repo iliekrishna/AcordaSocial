@@ -1,4 +1,4 @@
-package com.example.acordasocial;
+package com.example.acordasocial.Usuario;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.acordasocial.R;
 
 public class historico_servicos extends AppCompatActivity {
 

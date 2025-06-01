@@ -1,4 +1,4 @@
-package com.example.acordasocial;
+package com.example.acordasocial.Vagas;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.acordasocial.R;
 
 import java.util.List;
 

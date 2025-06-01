@@ -16,10 +16,12 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.acordasocial.Usuario.perfilUsuario;
+import com.example.acordasocial.Vagas.CriarVagaActivity;
+import com.example.acordasocial.Vagas.Vaga;
+import com.example.acordasocial.Vagas.VagaAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;

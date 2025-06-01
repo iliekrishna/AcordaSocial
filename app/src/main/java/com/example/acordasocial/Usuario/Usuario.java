@@ -1,4 +1,4 @@
-package com.example.acordasocial;
+package com.example.acordasocial.Usuario;
 
 public class Usuario {
     private String id;

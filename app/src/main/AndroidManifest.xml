@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
 
     <application
         android:allowBackup="true"
@@ -13,22 +15,22 @@
         android:theme="@style/Theme.AcordaSocial"
         tools:targetApi="31">
         <activity
-            android:name=".historico_servicos"
+            android:name=".Usuario.historico_servicos"
             android:exported="false" />
         <activity
-            android:name=".CriarVagaActivity"
+            android:name=".Vagas.CriarVagaActivity"
             android:exported="false" />
         <activity
-            android:name=".service_description"
+            android:name=".Vagas.service_description"
             android:exported="false" />
         <activity
-            android:name=".perfilUsuario"
+            android:name=".Usuario.perfilUsuario"
             android:exported="false" />
         <activity
             android:name=".feedPrincipal"
             android:exported="false" />
         <activity
-            android:name=".telaCadastro"
+            android:name=".Usuario.telaCadastro"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
