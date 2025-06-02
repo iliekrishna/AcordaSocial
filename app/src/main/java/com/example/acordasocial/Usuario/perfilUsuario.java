@@ -2,13 +2,17 @@ package com.example.acordasocial.Usuario;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -21,10 +25,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class perfilUsuario extends AppCompatActivity {
+    private static final int PICK_IMAGE_REQUEST = 1;
+    private ActivityResultLauncher<Intent> activityResultLauncher;
+    private Uri imageUri;
+
+    private ImageView imgPerfil;
+
     private TextView tvNomeUsuario, tvEmailUsuario;
     FirebaseAuth auth;
     private DatabaseReference databaseReference;
-    private Button btnSair, btnMeusVoluntariados;
+    private Button btnSair, btnMeusVoluntariados, btnEditarPerfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +49,44 @@ public class perfilUsuario extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("usuarios");
 
+        imgPerfil = findViewById(R.id.imgPerfil);
         tvNomeUsuario = findViewById(R.id.tvNomeUsuario);
         tvEmailUsuario = findViewById(R.id.tvEmailUsuario);
         btnSair = findViewById(R.id.btnSair);
         btnMeusVoluntariados = findViewById(R.id.btnMeusVoluntariados);
+        btnEditarPerfil = findViewById(R.id.btnEditarPerfil);
+
 
        carregarDadosUsuario();
+        btnEditarPerfil.setOnClickListener(v -> abrirGaleria());
+
+        activityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        imageUri = result.getData().getData();
+                        Toast.makeText(this, "Imagem selecionada com sucesso!", Toast.LENGTH_SHORT).show();
+                        // Aqui pode exibir num ImageView ou fazer upload
+                    }
+                }
+        );
+
 
     }
+
+    private void abrirGaleria() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        activityResultLauncher.launch(Intent.createChooser(intent, "Selecione uma imagem"));
+    }
+
+
+//    private void abrirGaleria() {
+//        Intent intent = new Intent();
+//        intent.setType("image/*");
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(Intent.createChooser(intent, "Selecione uma imagem"), PICK_IMAGE_REQUEST);
+//    }
 
     private void carregarDadosUsuario() {
         FirebaseUser user = auth.getCurrentUser();

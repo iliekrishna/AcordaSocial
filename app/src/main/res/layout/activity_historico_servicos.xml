@@ -22,9 +22,9 @@
 
     <!-- RecyclerView para listar os serviços -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewHistorico"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:id="@+id/rvHistorico"
+        android:layout_width="374dp"
+        android:layout_height="503dp"
         android:layout_weight="1"
         android:scrollbars="vertical" />
 
