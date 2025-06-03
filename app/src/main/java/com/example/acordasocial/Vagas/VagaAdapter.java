@@ -44,6 +44,7 @@ public class VagaAdapter extends RecyclerView.Adapter<VagaAdapter.VagaViewHolder
         return new VagaViewHolder(itemView);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull VagaViewHolder holder, int position) {
         Vaga vaga = listaVagas.get(position);
@@ -62,6 +63,7 @@ public class VagaAdapter extends RecyclerView.Adapter<VagaAdapter.VagaViewHolder
             v.getContext().startActivity(intent);
         });
     }
+
 
     @Override
     public int getItemCount() {
