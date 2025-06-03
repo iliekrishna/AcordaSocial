@@ -28,7 +28,7 @@ public class HistoricoAdapter extends RecyclerView.Adapter<HistoricoAdapter.Hist
             nomeOng = itemView.findViewById(R.id.tvNomeOng);
             descricao = itemView.findViewById(R.id.tvDescricao);
             local = itemView.findViewById(R.id.tvLocal);
-            horario = itemView.findViewById(R.id.etHorario);
+            horario = itemView.findViewById(R.id.tvHorario);
         }
     }
 

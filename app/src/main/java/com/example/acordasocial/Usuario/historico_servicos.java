@@ -1,6 +1,7 @@
 package com.example.acordasocial.Usuario;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,32 +47,23 @@ public class historico_servicos extends AppCompatActivity {
         carregarEventosDoUsuario();
     }
 
+
     private void carregarEventosDoUsuario() {
         String uid = auth.getCurrentUser().getUid();
 
-        databaseReferenceUsuarios.child(uid).child("participacoes").addListenerForSingleValueEvent(new ValueEventListener() {
+        DatabaseReference databaseReferenceParticipacoes = FirebaseDatabase.getInstance().getReference("participacoes");
+
+        databaseReferenceParticipacoes.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     listaVagas.clear();
                     for (DataSnapshot vagaSnapshot : snapshot.getChildren()) {
-                        String vagaId = vagaSnapshot.getKey();
-
-                        databaseReferenceVagas.child(vagaId).addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot vagaData) {
-                                Vaga vaga = vagaData.getValue(Vaga.class);
-                                if (vaga != null) {
-                                    listaVagas.add(vaga);
-                                    historicoAdapter.notifyDataSetChanged();
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError error) {
-                                Toast.makeText(historico_servicos.this, "Erro ao carregar vaga", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                        Vaga vaga = vagaSnapshot.getValue(Vaga.class);
+                        if (vaga != null) {
+                            listaVagas.add(vaga);
+                            historicoAdapter.notifyDataSetChanged();
+                        }
                     }
                 } else {
                     Toast.makeText(historico_servicos.this, "Você não participou de nenhum evento.", Toast.LENGTH_SHORT).show();
