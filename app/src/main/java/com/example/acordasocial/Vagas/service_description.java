@@ -19,8 +19,11 @@ import androidx.core.app.NotificationManagerCompat;
 import com.example.acordasocial.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class service_description extends AppCompatActivity {
 
@@ -58,39 +61,51 @@ public class service_description extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
-        // Criar canal de notificação
         createNotificationChannel();
 
         btnParticipar1.setOnClickListener(v -> {
-            registrarParticipacao();
+            verificarParticipacao();
         });
     }
 
-    private void registrarParticipacao() {
+    private void verificarParticipacao() {
         FirebaseUser user = auth.getCurrentUser();
 
         if (user != null) {
             String uid = user.getUid();
+            DatabaseReference participacaoRef = databaseReference.child("participacoes").child(uid).child(nomeEvento);
 
-            // Estrutura: participacoes/{uid}/{evento_id}
-            DatabaseReference participacaoRef = databaseReference.child("participacoes").child(uid);
+            participacaoRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        Toast.makeText(service_description.this, "Você já está inscrito neste evento!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        registrarParticipacao(participacaoRef);
+                    }
+                }
 
-            // Criar objeto com os dados da vaga
-            Participacao participacao = new Participacao(nomeEvento, desc, loc, hora);
-
-            // Gerar chave única
-            participacaoRef.push().setValue(participacao)
-                    .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(service_description.this, "Participação registrada com sucesso!", Toast.LENGTH_SHORT).show();
-                        enviarNotificacao();
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(service_description.this, "Erro ao registrar participação: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    });
-
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(service_description.this, "Erro ao verificar inscrição: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
         } else {
             Toast.makeText(this, "Usuário não autenticado", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void registrarParticipacao(DatabaseReference participacaoRef) {
+        Participacao participacao = new Participacao(nomeEvento, desc, loc, hora);
+
+        participacaoRef.setValue(participacao)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(service_description.this, "Participação registrada com sucesso!", Toast.LENGTH_SHORT).show();
+                    enviarNotificacao();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(service_description.this, "Erro ao registrar participação: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
     }
 
     private void createNotificationChannel() {
@@ -126,19 +141,15 @@ public class service_description extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        // Opcional: Pode disparar novamente a notificação se a permissão for concedida
     }
 
-    // Classe modelo de participação
     public static class Participacao {
         public String nomeEvento;
         public String descricao;
         public String local;
         public String horario;
 
-        public Participacao() {
-            // Construtor vazio requerido pelo Firebase
-        }
+        public Participacao() {}
 
         public Participacao(String nomeEvento, String descricao, String local, String horario) {
             this.nomeEvento = nomeEvento;
