@@ -2,10 +2,10 @@ package com.example.acordasocial.Vagas;
 
 public class Vaga {
     private String id;
-    private String nomeOng;
+    private String nomeOng;  // MELHOR deixar como nomeOng direto
     private String descricao;
     private String local;
-    private String horario;  // <-- Novo campo
+    private String horario;
 
     public Vaga() {
     }

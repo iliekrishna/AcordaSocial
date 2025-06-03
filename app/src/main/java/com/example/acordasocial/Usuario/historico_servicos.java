@@ -1,7 +1,10 @@
 package com.example.acordasocial.Usuario;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +25,7 @@ public class historico_servicos extends AppCompatActivity {
     private FirebaseAuth auth;
     private DatabaseReference databaseReferenceUsuarios;
     private DatabaseReference databaseReferenceVagas;
-
+    public Button btnVoltarHistorico;
     private RecyclerView rvHistorico;
     private List<Vaga> listaVagas = new ArrayList<>();
     private HistoricoAdapter historicoAdapter;
@@ -32,6 +35,7 @@ public class historico_servicos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historico_servicos);
 
+        btnVoltarHistorico = findViewById(R.id.btnVoltarHistorico);
         rvHistorico = findViewById(R.id.rvHistorico);
 
         // ESSENCIAL: definir o LayoutManager
@@ -45,8 +49,15 @@ public class historico_servicos extends AppCompatActivity {
         databaseReferenceVagas = FirebaseDatabase.getInstance().getReference("vagas");
 
         carregarEventosDoUsuario();
+
     }
 
+
+    public void voltarPerfil(View view){
+        Intent intent = new Intent(historico_servicos.this, perfilUsuario.class);
+        startActivity(intent);
+        finish();
+    }
 
     private void carregarEventosDoUsuario() {
         String uid = auth.getCurrentUser().getUid();

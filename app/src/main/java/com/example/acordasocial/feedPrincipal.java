@@ -96,7 +96,7 @@ public class feedPrincipal extends AppCompatActivity {
 
             @Override
             public void onCancelled(com.google.firebase.database.DatabaseError error) {
-                Toast.makeText(feedPrincipal.this, "Erro ao carregar vagas.", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(feedPrincipal.this, "Erro ao carregar vagas.", Toast.LENGTH_SHORT).show();
                 Log.e("FeedPrincipal", "Erro ao buscar vagas", error.toException());
             }
         });

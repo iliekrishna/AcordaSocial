@@ -121,13 +121,14 @@ public class perfilUsuario extends AppCompatActivity {
         Intent intent = new Intent(perfilUsuario.this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK); // Limpa a pilha de atividades
         startActivity(intent);
+        Toast.makeText(perfilUsuario.this, "Usuário Desconectado", Toast.LENGTH_SHORT).show();
         finish();  // Finaliza a activity atual
     }
 
     public void MeusEventos(View view){
         Intent intent = new Intent(perfilUsuario.this, historico_servicos.class);
         startActivity(intent);
-
+        finish();
     }
 
 
