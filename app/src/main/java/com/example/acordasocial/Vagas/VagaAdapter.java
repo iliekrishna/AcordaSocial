@@ -28,7 +28,7 @@ public class VagaAdapter extends RecyclerView.Adapter<VagaAdapter.VagaViewHolder
 
         public VagaViewHolder(@NonNull View itemView) {
             super(itemView);
-            nomeOng = itemView.findViewById(R.id.txtNomeOng);
+            nomeOng = itemView.findViewById(R.id.txtServiceName);
             descricao = itemView.findViewById(R.id.tvDescricao);
             local = itemView.findViewById(R.id.tvLocal);
             horario = itemView.findViewById(R.id.etHorario );

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
-
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AcordaSocial"
         tools:targetApi="31">
+        <activity
+            android:name=".detalhesActivity"
+            android:exported="false" />
         <activity
             android:name=".Usuario.historico_servicos"
             android:exported="false" />

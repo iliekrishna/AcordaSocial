@@ -144,15 +144,15 @@ public class service_description extends AppCompatActivity {
     }
 
     public static class Participacao {
-        public String nomeEvento;
+        public String nomeOng;
         public String descricao;
         public String local;
         public String horario;
 
         public Participacao() {}
 
-        public Participacao(String nomeEvento, String descricao, String local, String horario) {
-            this.nomeEvento = nomeEvento;
+        public Participacao(String nomeOng, String descricao, String local, String horario) {
+            this.nomeOng = nomeOng;
             this.descricao = descricao;
             this.local = local;
             this.horario = horario;

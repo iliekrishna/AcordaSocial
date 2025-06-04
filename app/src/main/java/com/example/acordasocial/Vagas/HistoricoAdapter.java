@@ -1,14 +1,17 @@
 package com.example.acordasocial.Vagas;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.acordasocial.R;
+import com.example.acordasocial.detalhesActivity;
 
 import java.util.List;
 
@@ -22,13 +25,16 @@ public class HistoricoAdapter extends RecyclerView.Adapter<HistoricoAdapter.Hist
 
     public static class HistoricoViewHolder extends RecyclerView.ViewHolder {
         TextView nomeOng, descricao, local, horario;
+        Button btnDetalhes;
 
         public HistoricoViewHolder(@NonNull View itemView) {
             super(itemView);
-            nomeOng = itemView.findViewById(R.id.txtNomeOng);
+            nomeOng = itemView.findViewById(R.id.txtServiceName);
             descricao = itemView.findViewById(R.id.tvDescricao);
-            local = itemView.findViewById(R.id.tvLocal);
-            horario = itemView.findViewById(R.id.tvHorario);
+            //local = itemView.findViewById(R.id.textLocation);
+            //horario = itemView.findViewById(R.id.textTime);
+            btnDetalhes = itemView.findViewById(R.id.btnDetalhes);
+
         }
     }
 
@@ -45,8 +51,18 @@ public class HistoricoAdapter extends RecyclerView.Adapter<HistoricoAdapter.Hist
         Vaga vaga = listaVagas.get(position);
         holder.nomeOng.setText(vaga.getNomeOng());
         holder.descricao.setText(vaga.getDescricao());
-        holder.local.setText(vaga.getLocal());
-        holder.horario.setText(vaga.getHorario());
+       //holder.local.setText(vaga.getLocal());
+        //holder.horario.setText(vaga.getHorario());
+
+        holder.btnDetalhes.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), detalhesActivity.class);
+            intent.putExtra("id", vaga.getId());
+            intent.putExtra("nomeOng", vaga.getNomeOng());
+            intent.putExtra("descricao", vaga.getDescricao());
+            intent.putExtra("local", vaga.getLocal());
+            intent.putExtra("horario", vaga.getHorario());
+            v.getContext().startActivity(intent);
+        });
     }
 
     @Override
