@@ -102,11 +102,18 @@ Lucas Noguti;
 Ruryá Henri.
 
 ## Contato 📞
+
+### E-mail dos Autores:
+E-mail: <strong>Lucas.noguti3@gmail.com</strong>
+
 E-mail: <strong>iliekrishna86@gmail.com</strong>
 
 E-mail: <strong>jguilherme@gmail.com</strong>
 
 E-mail: <strong>henrirhyom@gmail.com</strong>
+
+### LinkedIn dos Autores:
+LinkedIn: <strong> https://www.linkedin.com/in/lucasnoguti/ </strong>
 
 LinkedIn: <strong> https://www.linkedin.com/in/ilie-krishna-4a9009231/ </strong>
 
