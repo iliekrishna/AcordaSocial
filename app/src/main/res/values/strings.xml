@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AcordaSocial</string>
+    <string name="cadastro"><u>Não tem conta? Cadastre-se</u></string>
 </resources>

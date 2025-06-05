@@ -1,43 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:orientation="vertical"
-android:padding="24dp" android:id="@+id/main"
-android:layout_width="match_parent"
-android:layout_height="match_parent">
-
-<EditText
-    android:id="@+id/etNomeOng"
-    android:hint="Nome da ONG"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:orientation="vertical"
+    android:padding="24dp">
 
-<EditText
-    android:id="@+id/etDescricao"
-    android:hint="Descrição"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/etNomeOng"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome da ONG"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF" />
 
-<EditText
-    android:id="@+id/etLocal"
-    android:hint="Local"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/etDescricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descrição"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF" />
 
-<EditText
-    android:id="@+id/etHorario"
-    android:hint="Horário (Ex: 14:00)"
-    android:inputType="time"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/etLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Local"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF" />
 
-<Button
-    android:id="@+id/btnSalvar"
-    android:text="Salvar Vaga"
-    android:backgroundTint="#2196F3"
-    android:textColor="#FFFFFF"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"/>
+    <EditText
+        android:id="@+id/etHorario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Horário (Ex: 14:00)"
+        android:inputType="time"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btnSalvar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#BB86FC"
+        android:text="Salvar Vaga"
+        android:textColor="#121212" />
 
 </LinearLayout>

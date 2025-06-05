@@ -37,7 +37,7 @@
         android:paddingEnd="12dp"
         android:paddingBottom="8dp"
         android:text="Criar"
-        android:textColor="#FFFFFF"
+        android:textColor="#121212"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

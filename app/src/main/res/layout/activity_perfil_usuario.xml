@@ -85,7 +85,7 @@
         android:backgroundTint="#CF6679"
         android:onClick="Sair"
         android:text="Sair"
-        android:textColor="#FFFFFF"
+        android:textColor="#121212"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnMeusVoluntariados" />

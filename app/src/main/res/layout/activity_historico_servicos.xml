@@ -48,6 +48,7 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="#BB86FC"
         android:onClick="voltarPerfil"
-        android:text="Voltar" />
+        android:text="Voltar"
+        android:textColor="#121212" />
 
 </LinearLayout>
