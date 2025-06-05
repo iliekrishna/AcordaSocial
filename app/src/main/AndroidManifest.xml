@@ -15,6 +15,9 @@
         android:theme="@style/Theme.AcordaSocial"
         tools:targetApi="31">
         <activity
+            android:name=".Voluntarios"
+            android:exported="false" />
+        <activity
             android:name=".detalhesActivity"
             android:exported="false" />
         <activity

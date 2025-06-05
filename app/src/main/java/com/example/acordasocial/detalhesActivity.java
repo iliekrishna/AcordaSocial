@@ -1,5 +1,6 @@
 package com.example.acordasocial;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class detalhesActivity extends AppCompatActivity {
-    private Button btnVoltar;
+    private Button btnVoltar, btnParticipantes;
     TextView nomeOng, descricao, local, horario;
 
     private static final String CHANNEL_ID = "canal_id";
@@ -28,6 +29,7 @@ public class detalhesActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private DatabaseReference databaseReference;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,7 @@ public class detalhesActivity extends AppCompatActivity {
         local = findViewById(R.id.textLocation);
         horario = findViewById(R.id.textTime);
         btnVoltar = findViewById(R.id.btnVoltar);
+        btnParticipantes = findViewById(R.id.btnParticipantes);
         nomeEvento = getIntent().getStringExtra("nomeOng");
         desc = getIntent().getStringExtra("descricao");
         loc = getIntent().getStringExtra("local");
@@ -57,6 +60,10 @@ public class detalhesActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
 
+    }
+    public void setBtnParticipantes(View view){
+        Intent intent = new Intent(detalhesActivity.this, Voluntarios.class);
+        startActivity(intent);
     }
     public void setBtnVoltar(View view){
         Intent intent = new Intent(detalhesActivity.this, historico_servicos.class);
