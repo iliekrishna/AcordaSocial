@@ -1,5 +1,6 @@
 package com.example.acordasocial.Vagas;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,11 +19,12 @@ import java.util.Map;
 
 public class CriarVagaActivity extends AppCompatActivity {
 
-    private EditText etNomeOng, etDescricao, etLocal, etHorario;
+    private EditText etNomeOng, etDescricao, etLocal, etHorario, etData;
     private Button btnSalvar;
 
     private DatabaseReference databaseReference;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,14 +33,16 @@ public class CriarVagaActivity extends AppCompatActivity {
         // Inicializando Realtime Database
         databaseReference = FirebaseDatabase.getInstance().getReference("vagas");
 
+        etData = findViewById(R.id.etData);
         etNomeOng = findViewById(R.id.etNomeOng);
         etDescricao = findViewById(R.id.etDescricao);
         etLocal = findViewById(R.id.etLocal);
         etHorario = findViewById(R.id.etHorario);
         btnSalvar = findViewById(R.id.btnSalvar);
 
-        // Adiciona a máscara no campo horário
+        // Adiciona as máscaras
         addMaskToHorario();
+        addMaskToData();
 
         btnSalvar.setOnClickListener(view -> salvarVaga());
     }
@@ -48,8 +52,9 @@ public class CriarVagaActivity extends AppCompatActivity {
         String descricao = etDescricao.getText().toString().trim();
         String local = etLocal.getText().toString().trim();
         String horario = etHorario.getText().toString().trim();
+        String data = etData.getText().toString().trim();
 
-        if (nomeOng.isEmpty() || descricao.isEmpty() || local.isEmpty() || horario.isEmpty()) {
+        if (nomeOng.isEmpty() || descricao.isEmpty() || local.isEmpty() || horario.isEmpty() || data.isEmpty()) {
             Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -62,6 +67,7 @@ public class CriarVagaActivity extends AppCompatActivity {
         vaga.put("descricao", descricao);
         vaga.put("local", local);
         vaga.put("horario", horario);
+        vaga.put("data", data);
 
         if (vagaId != null) {
             databaseReference.child(vagaId).setValue(vaga)
@@ -112,6 +118,50 @@ public class CriarVagaActivity extends AppCompatActivity {
                 isUpdating = true;
                 etHorario.setText(formatted.toString());
                 etHorario.setSelection(formatted.length());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) { }
+        });
+    }
+
+    private void addMaskToData() {
+        etData.addTextChangedListener(new TextWatcher() {
+            private boolean isUpdating;
+            private final String mask = "##/##/####";
+            private final String regex = "[^0-9]";
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (isUpdating) {
+                    isUpdating = false;
+                    return;
+                }
+
+                String str = s.toString().replaceAll(regex, "");
+
+                StringBuilder formatted = new StringBuilder();
+
+                int i = 0;
+                for (char m : mask.toCharArray()) {
+                    if (m != '#' && str.length() > i) {
+                        formatted.append(m);
+                    } else {
+                        try {
+                            formatted.append(str.charAt(i));
+                        } catch (Exception e) {
+                            break;
+                        }
+                        i++;
+                    }
+                }
+
+                isUpdating = true;
+                etData.setText(formatted.toString());
+                etData.setSelection(formatted.length());
             }
 
             @Override

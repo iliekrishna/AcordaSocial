@@ -21,10 +21,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class detalhesActivity extends AppCompatActivity {
     private Button btnVoltar, btnParticipantes;
-    TextView nomeOng, descricao, local, horario;
+    TextView nomeOng, descricao, local, horario, textdata;
 
     private static final String CHANNEL_ID = "canal_id";
-    private String nomeEvento = "", desc = "", loc = "", hora = "";
+    private String nomeEvento = "", desc = "", loc = "", hora = "", data = " ";
 
     private FirebaseAuth auth;
     private DatabaseReference databaseReference;
@@ -44,17 +44,22 @@ public class detalhesActivity extends AppCompatActivity {
         descricao = findViewById(R.id.textOngName);
         local = findViewById(R.id.textLocation);
         horario = findViewById(R.id.textTime);
+        textdata = findViewById(R.id.textData2);
         btnVoltar = findViewById(R.id.btnVoltar);
         btnParticipantes = findViewById(R.id.btnParticipantes);
+
+
         nomeEvento = getIntent().getStringExtra("nomeOng");
         desc = getIntent().getStringExtra("descricao");
         loc = getIntent().getStringExtra("local");
         hora = getIntent().getStringExtra("horario");
+        data = getIntent().getStringExtra("data");
 
         nomeOng.setText(nomeEvento);
         descricao.setText(desc);
         local.setText(loc);
         horario.setText("Horário: " + hora);
+        textdata.setText("Data: "+ data);
 
         auth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();

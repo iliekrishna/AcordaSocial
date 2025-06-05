@@ -1,8 +1,10 @@
 package com.example.acordasocial.Vagas;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,14 +30,15 @@ import com.google.firebase.database.ValueEventListener;
 public class service_description extends AppCompatActivity {
 
     private Button btnParticipar1;
-    TextView nomeOng, descricao, local, horario;
+    TextView nomeOng, descricao, local, horario, txtdata;
 
     private static final String CHANNEL_ID = "canal_id";
-    private String nomeEvento = "", desc = "", loc = "", hora = "";
+    private String nomeEvento = "", desc = "", loc = "", hora = "", data = "";
 
     private FirebaseAuth auth;
     private DatabaseReference databaseReference;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,25 +50,26 @@ public class service_description extends AppCompatActivity {
         descricao = findViewById(R.id.textOngName);
         local = findViewById(R.id.textLocation);
         horario = findViewById(R.id.textTime);
+        txtdata = findViewById(R.id.textData);
 
         nomeEvento = getIntent().getStringExtra("nomeOng");
         desc = getIntent().getStringExtra("descricao");
         loc = getIntent().getStringExtra("local");
         hora = getIntent().getStringExtra("horario");
+        data = getIntent().getStringExtra("data");
 
         nomeOng.setText(nomeEvento);
         descricao.setText(desc);
         local.setText(loc);
         horario.setText("Horário: " + hora);
+        txtdata.setText("Data: " + data); // adicionei espaço depois de "Data:"
 
         auth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
         createNotificationChannel();
 
-        btnParticipar1.setOnClickListener(v -> {
-            verificarParticipacao();
-        });
+        btnParticipar1.setOnClickListener(v -> verificarParticipacao());
     }
 
     private void verificarParticipacao() {
@@ -96,7 +100,7 @@ public class service_description extends AppCompatActivity {
     }
 
     private void registrarParticipacao(DatabaseReference participacaoRef) {
-        Participacao participacao = new Participacao(nomeEvento, desc, loc, hora);
+        Participacao participacao = new Participacao(nomeEvento, desc, loc, hora, data); // agora inclui data!
 
         participacaoRef.setValue(participacao)
                 .addOnSuccessListener(aVoid -> {
@@ -148,14 +152,16 @@ public class service_description extends AppCompatActivity {
         public String descricao;
         public String local;
         public String horario;
+        public String data; // ✅ adicionando o campo data!
 
         public Participacao() {}
 
-        public Participacao(String nomeOng, String descricao, String local, String horario) {
+        public Participacao(String nomeOng, String descricao, String local, String horario, String data) {
             this.nomeOng = nomeOng;
             this.descricao = descricao;
             this.local = local;
             this.horario = horario;
+            this.data = data;
         }
     }
 }

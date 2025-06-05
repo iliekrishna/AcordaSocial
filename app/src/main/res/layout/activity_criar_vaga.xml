@@ -33,6 +33,15 @@
         android:textColorHint="#FFFFFF" />
 
     <EditText
+        android:id="@+id/etData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Data (ex: 01/02/2025)"
+        android:inputType="time"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF" />
+
+    <EditText
         android:id="@+id/etHorario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

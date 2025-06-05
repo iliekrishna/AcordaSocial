@@ -24,7 +24,7 @@ public class HistoricoAdapter extends RecyclerView.Adapter<HistoricoAdapter.Hist
     }
 
     public static class HistoricoViewHolder extends RecyclerView.ViewHolder {
-        TextView nomeOng, descricao, local, horario;
+        TextView nomeOng, descricao, local, horario, textData;
         Button btnDetalhes;
 
         public HistoricoViewHolder(@NonNull View itemView) {
@@ -61,6 +61,7 @@ public class HistoricoAdapter extends RecyclerView.Adapter<HistoricoAdapter.Hist
             intent.putExtra("descricao", vaga.getDescricao());
             intent.putExtra("local", vaga.getLocal());
             intent.putExtra("horario", vaga.getHorario());
+            intent.putExtra("data", vaga.getData());
             v.getContext().startActivity(intent);
         });
     }

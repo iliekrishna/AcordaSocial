@@ -60,6 +60,7 @@ public class VagaAdapter extends RecyclerView.Adapter<VagaAdapter.VagaViewHolder
             intent.putExtra("descricao", vaga.getDescricao());
             intent.putExtra("local", vaga.getLocal());
             intent.putExtra("horario", vaga.getHorario());
+            intent.putExtra("data", vaga.getData());
             v.getContext().startActivity(intent);
         });
     }
