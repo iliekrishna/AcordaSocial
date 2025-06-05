@@ -24,8 +24,6 @@ AcordaSocial é um aplicativo Android que conecta organizações não governamen
 
 ● Firebase Realtime Database: Para armazenar e recuperar informações sobre ONGs e voluntários.
 
-● Google Maps API: Para localizar ONGs e exibir em um mapa.
-
 ● Push Notifications: Para enviar notificações para voluntários e ONGs.
 
 ## Como Rodar o Projeto? 🤔 
@@ -104,11 +102,12 @@ Ruryá Henri.
 ## Contato 📞
 
 ### E-mail dos Autores:
-E-mail: <strong>Lucas.noguti3@gmail.com</strong>
 
 E-mail: <strong>iliekrishna86@gmail.com</strong>
 
 E-mail: <strong>jguilherme@gmail.com</strong>
+
+E-mail: <strong>Lucas.noguti3@gmail.com</strong>
 
 E-mail: <strong>henrirhyom@gmail.com</strong>
 
