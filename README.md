@@ -1,50 +1,53 @@
-# AcordaSocial: Aplicativo Mobile de Serviço Voluntário
-AcordaSocial
+# AcordaSocial: Aplicativo Mobile de Serviço Voluntário 🤝
+
 AcordaSocial é um aplicativo Android que conecta organizações não governamentais (ONGs) com voluntários dispostos a oferecer seus serviços para causas sociais. Com uma interface simples e intuitiva, o app funciona de maneira semelhante ao LinkedIn, permitindo que ONGs encontrem e se conectem com voluntários interessados em ajudar.
 
-## Funcionalidades
-Cadastro de ONGs e Voluntários: Permite que ONGs e voluntários criem perfis personalizados.
+## Funcionalidades⚙
+● Cadastro de ONGs e Voluntários: Permite que ONGs e voluntários criem perfis personalizados.
 
-Busca e Filtros: Voluntários podem pesquisar ONGs por tipo de serviço, localidade e outras preferências.
+● Prestação de Serviço: Usuários podem se candidatar para vagas de voluntariado, podendo auxiliar ONGs que necessitam de mão de obra.
 
-Match Voluntário-ONG: Algoritmo de correspondência que sugere ONGs para voluntários e vice-versa.
+● Painel de Controle: ONGs podem visualizar e gerenciar os voluntários interessados em seus projetos.
 
-Painel de Controle: ONGs podem visualizar e gerenciar os voluntários interessados em seus projetos.
+● Notificações: Notificações em tempo real para atualizações sobre novas oportunidades de voluntariado.
 
-Notificações: Notificações em tempo real para atualizações sobre novas oportunidades de voluntariado.
+● Feedback: Voluntários e ONGs podem avaliar suas experiências após cada serviço.
 
-Feedback: Voluntários e ONGs podem avaliar suas experiências após cada serviço.
+## Tecnologias Utilizadas 💻
+● Linguagem: Java 
 
-## Tecnologias Utilizadas
-Linguagem: Java ☕
+● Android Studio: IDE para desenvolvimento de aplicativos Android. 
 
-Android Studio: IDE para desenvolvimento de aplicativos Android. 
+● Banco de Dados: Firebase (para armazenamento de dados, autenticação e notificações em tempo real).
 
-Banco de Dados: Firebase (para armazenamento de dados, autenticação e notificações em tempo real).
+● Firebase Authentication: Para realizar o login e registro de usuários.
 
-Firebase Authentication: Para realizar o login e registro de usuários.
+● Firebase Realtime Database: Para armazenar e recuperar informações sobre ONGs e voluntários.
 
-Firebase Realtime Database: Para armazenar e recuperar informações sobre ONGs e voluntários.
+● Google Maps API: Para localizar ONGs e exibir em um mapa.
 
-Google Maps API: Para localizar ONGs e exibir em um mapa.
+● Push Notifications: Para enviar notificações para voluntários e ONGs.
 
-Push Notifications: Para enviar notificações para voluntários e ONGs.
+## Como Rodar o Projeto? 🤔 
+### Pré-requisitos:
 
-## Como Rodar o Projeto
-Pré-requisitos
-Instalar o Android Studio: Certifique-se de ter o Android Studio instalado.
+● Instalar o Android Studio: Certifique-se de ter o Android Studio instalado.
 
-Configurar o Firebase: Você precisa de uma conta no Firebase. Siga a documentação oficial do Firebase para adicionar o projeto ao console do Firebase e configurar o google-services.json no seu projeto.
+● Configurar o Firebase: Você precisa de uma conta no Firebase. Siga a documentação oficial do Firebase para adicionar o projeto ao console do Firebase e configurar o google-services.json no seu projeto.
 
-SDK do Android: Verifique se o SDK do Android está corretamente configurado no Android Studio.
+● SDK do Android: Verifique se o SDK do Android está corretamente configurado no Android Studio.
 
-Passos para executar o projeto
-Clone o repositório para sua máquina local:
+## Passos para executar o projeto:
 
+### Clone o repositório para sua máquina local 👨‍💻
 bash
+
 Copiar
+
 Editar
+
 git clone https://github.com/usuario/AcordaSocial.git
+
 Abra o projeto no Android Studio.
 
 Sincronize o projeto com os arquivos do Gradle, caso seja solicitado.
@@ -55,38 +58,41 @@ Execute o projeto no seu dispositivo Android ou em um emulador.
 
 O app estará disponível para testes e desenvolvimento adicionais.
 
-Estrutura do Projeto
-app/src/main/java/com/acordasocial/: Contém o código Java da aplicação.
+## Estrutura do Projeto 🧱
 
-activity: Contém as atividades principais do app, como tela de login, cadastro e painel de controle.
+● app/src/main/java/com/acordasocial/: Contém o código Java da aplicação.
 
-model: Contém as classes de modelo de dados (ex. Usuário, ONG, Voluntário).
+● activity: Contém as atividades principais do app, como tela de login, cadastro e painel de controle.
 
-adapter: Contém adaptadores para listas e visualizações de dados.
+● model: Contém as classes de modelo de dados (ex. Usuário, ONG, Voluntário).
 
-firebase: Contém a lógica de integração com o Firebase.
+● adapter: Contém adaptadores para listas e visualizações de dados.
 
-app/src/main/res/: Contém os recursos de layout, imagens, strings e estilos.
+● firebase: Contém a lógica de integração com o Firebase.
 
-layout: Contém os arquivos XML de layout para cada tela do aplicativo.
+● app/src/main/res/: Contém os recursos de layout, imagens, strings e estilos.
 
-values: Contém os arquivos de strings e estilos.
+● layout: Contém os arquivos XML de layout para cada tela do aplicativo.
 
-Contribuindo
-Faça um fork do projeto.
+● values: Contém os arquivos de strings e estilos.
 
-Crie uma branch para a sua feature (git checkout -b feature/nova-feature).
+## Contribuindo 📝
 
-Faça as alterações e commit (git commit -am 'Adiciona nova feature').
+● Faça um fork do projeto.
 
-Push para a branch (git push origin feature/nova-feature).
+● Crie uma branch para a sua feature (git checkout -b feature/nova-feature).
 
-Abra um Pull Request explicando suas alterações.
+● Faça as alterações e commit (git commit -am 'Adiciona nova feature').
 
-Licença
-Este projeto é licenciado sob a MIT License - veja o arquivo LICENSE para mais detalhes.
+● Push para a branch (git push origin feature/nova-feature).
 
-## Autores
+● Abra um Pull Request explicando suas alterações.
+
+## Licença 📜
+
+Este projeto não tem licença, mas gostariamos que não fosse utilizado para fins comerciais. 
+
+## Autores 👤
 Ilie Krishna;
 
 João Guilherme;
@@ -95,7 +101,15 @@ Lucas Noguti;
 
 Ruryá Henri.
 
-## Contato
+## Contato 📞
 E-mail: <strong>iliekrishna86@gmail.com</strong>
 
+E-mail: <strong>jguilherme@gmail.com</strong>
+
+E-mail: <strong>henrirhyom@gmail.com</strong>
+
 LinkedIn: <strong> https://www.linkedin.com/in/ilie-krishna-4a9009231/ </strong>
+
+LinkedIn: <strong> https://www.linkedin.com/in/joão-guilherme-mendes-arquejada-149463257/ </strong>
+
+LinkedIn: <strong> https://www.linkedin.com/in/ruryá-oliveira-miranda-46658421a/ </strong>
