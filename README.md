@@ -9,7 +9,7 @@ AcordaSocial é um aplicativo Android que conecta organizações não governamen
 
 ● Painel de Controle: ONGs podem visualizar e gerenciar os voluntários interessados em seus projetos.
 
-● Notificações: Notificações em tempo real para atualizações sobre novas oportunidades de voluntariado.
+● Notificações: Notificações em tempo real para confirmar inscrição em voluntariados.
 
 ● Feedback: Voluntários e ONGs podem avaliar suas experiências após cada serviço.
 
