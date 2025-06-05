@@ -63,6 +63,9 @@ public class detalhesActivity extends AppCompatActivity {
     }
     public void setBtnParticipantes(View view){
         Intent intent = new Intent(detalhesActivity.this, Voluntarios.class);
+        intent.putExtra("nomeOng", nomeEvento);
+        String idEvento = getIntent().getStringExtra("id");
+        intent.putExtra("idEvento", idEvento);
         startActivity(intent);
     }
     public void setBtnVoltar(View view){

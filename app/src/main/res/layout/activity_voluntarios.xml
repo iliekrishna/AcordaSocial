@@ -29,8 +29,23 @@
         <ListView
             android:id="@+id/listViewVoluntarios"
             android:layout_width="fill_parent"
-            android:layout_height="401dp" />
+            android:layout_height="403dp" />
 
+        <Button
+            android:id="@+id/btnAtualizar"
+            android:layout_width="fill_parent"
+            android:layout_height="59dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#BB86FC"
+            android:onClick="setRefresh"
+            android:text="Atualizar"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textTime" />
         <Button
             android:id="@+id/btnVoltar"
             android:layout_width="fill_parent"
@@ -46,6 +61,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textTime" />
+
 
 
     </LinearLayout>
